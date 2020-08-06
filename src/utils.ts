@@ -1,6 +1,6 @@
 import { defaultState } from 'store';
 
-export function hydrateState(key:string = 'chumbucket_storage'){
+export function hydrateState(key:string = 'cover_storage'){
   if(localStorage.getItem(key)) {
     try {
       const state = JSON.parse(localStorage.getItem(key))
@@ -14,6 +14,6 @@ export function hydrateState(key:string = 'chumbucket_storage'){
   }
 }
 
-export function dehydrateState(store, key:string = 'chumbucket_storage') {
+export function dehydrateState(store, key:string = 'cover_storage') {
   localStorage.setItem(key, JSON.stringify(store))
 }

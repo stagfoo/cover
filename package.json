@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --content-base dist --hot --inline --mode=development",
     "build": "webpack -p",
-    "pwa": "cd chumbucket; create-pwa --icon=\"icon.png\" --launch=\"splash.png\"",
+    "pwa": "cd cover; create-pwa --icon=\"icon.png\" --launch=\"splash.png\"",
     "now build": "webpack -p"
   },
   "author": "stagfoo",
@@ -17,7 +17,8 @@
     "nanohtml": "^1.9.0",
     "nanomorph": "^5.4.2",
     "obake.js": "^1.0.1",
-    "page": "^1.11.4"
+    "page": "^1.11.4",
+    "steganogre": "^0.2.0"
   },
   "devDependencies": {
     "awesome-typescript-loader": "5.2.1",

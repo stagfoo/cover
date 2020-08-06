@@ -27,7 +27,7 @@
 - 🍹 Styles = Just Javascript and strings [Joro](https://github.com/stagfoo/joro).
 
 
-# whats a chumbucket
+# whats a cover
 
 a bucket for holding a form of bait used to attract sharks
 

@@ -1,7 +1,7 @@
 {
-  "name": "chumbucket",
+  "name": "cover",
   "version": 2,
-  "alias": "chumbucket.stagfoo.com",
+  "alias": "cover.stagfoo.com",
   "github": {
     "enabled": true,
     "autoAlias": true

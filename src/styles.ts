@@ -2,14 +2,15 @@ import joro from 'joro';
 
 export const DS = {
   fontFamily: {
-    default: "Fira Mono, san-serif",
-    alt: "'Staatliches', san-serif",
+    default: "'Lexend Zetta', san-serif",
+    alt: "'Lexend Zetta', san-serif",
   },
   fontSizes: {
     sm: 8,
     md: 16,
     lg: 24,
     xl: 32,
+    xxl: 64,
 
   },
   gutters: {
@@ -17,9 +18,12 @@ export const DS = {
     md: 16,
     lg: 24,
     xl: 32,
+    xxl: 64,
   },
   colors: {
     purple: "#8D58FD",
+    black: "#000000",
+    white: "#ffffff",
     blue: "#58D5FD",
     green: "#83FD58",
   }
@@ -28,82 +32,106 @@ export const DS = {
 export const STYLES = new joro();
 
 
-function buttonStyle(){
-  return `
-  background: ${DS.colors.blue};
-  color:  ${DS.colors.purple};
-  box-sizing: border-box;
-  font-size: ${DS.fontSizes.lg}px;
-  padding: ${DS.gutters.md}px;
-  border: 0;
-  text-decoration: none;
-  `
-}
-export function notificationStyle(){
-  STYLES.add("notificationStyle", `
-  .notification {
-    background: #fff;
-    box-shadow: 10px 10px 0px #000;
-    position:fixed;
-    font-size: ${DS.fontSizes.md}px;
-    padding: ${DS.gutters.md}px;
-    width: 320px;
-    text-align:center;
-    transition: ease all 0.3s;
-    animation-name: notification;
-    animation-duration: 0.3s;
-    bottom: 5vh;
-    }
-  .notification.hide {
-    animation-name: notification-out;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-  }
-  `)
-}
+
+
 
 export function BaseStyles() {
   STYLES.add("baseStyles", `
+    * {
+      font-family: ${DS.fontFamily.default};
+    }
     html,body {
       margin: 0;
       padding: 0;
-      background: ${DS.colors.purple};
-      color:  ${DS.colors.blue};
+      min-height: 100vh;
+      color:  ${DS.colors.white};
       opacity: 1;
+      font-family: ${DS.fontFamily.default};
+
     }
-    textarea,
+    body {
+      background-color: ${DS.colors.black};
+      background-image:url("/assets/wallpaper.png");
+      background-size: cover;
+      background-repeat:no-repeat;
+    }
+    h1 {
+      font-size:${DS.gutters.xxl}px;
+      letter-spacing: ${DS.gutters.xl*3}px;
+      margin-left: ${DS.gutters.xxl}px;
+    }
+    h2 {
+      font-size: ${DS.gutters.lg}px;
+    }
+    #cover-area {
+      margin-top: ${DS.gutters.xxl}px;
+      margin-bottom: ${DS.gutters.xl}px;
+      width: 480px;
+    }
+    input:focus,
+    input {
+      outline: none;
+      border: 0;
+      text-align: center;
+      font-family: ${DS.fontFamily.default};
+      font-size: ${DS.fontSizes.md/1.2}px;
+      clear: both;
+      width: 38%;
+      color: #fff;
+      display:block;
+      margin: 0 auto;
+      background: none;
+      border-bottom: 2px solid #ffffff;
+    }
     button {
-      display: block;
-      clear:both;
-      margin: ${DS.gutters.sm}px auto ${DS.gutters.sm}px auto;
-      ${buttonStyle()}
+      border: 0;
+      outline: none;
+      background-size: cover;
+      background-image: url('/assets/button-cover.png');
+      padding: ${DS.gutters.md}px;
+      margin-top: ${DS.gutters.xxl}px;
     }
-    textarea {
-      width: 100%;
-      min-height: 300px;
-      font-size: ${DS.fontSizes.xl}px;
+
+    button span {
+      background-color: #000;
+      padding: ${DS.gutters.sm/2}px;
+      color: #fff;
     }
-    .nav {
-      margin-top: ${DS.gutters.xl}px;
+    ul,li {
+      list-style:none;
+      margin: 0;
+      padding: 0;
     }
-    .nav li {
+    ul {
+      margin: 0 auto;
+      width: 712px;
+      display:block;
+    }
+    li {
       display:inline-block;
+      float:left;
+      padding: ${DS.gutters.md}px;
     }
-    .nav li.active a {
-      background: ${DS.colors.green};
-      color:  ${DS.colors.purple};
+
+    #samples {
+      padding-top: ${DS.gutters.xxl*2}px;
+      padding-bottom: ${DS.gutters.xxl*2}px;
+      display:block;
+      overflow:hidden;
     }
-    .nav li a {
-      ${buttonStyle()}
-      margin-right: ${DS.gutters.sm}px;
-    }
-    @keyframes notification {
-      from {bottom: -120vh;}
-      to { bottom: 5vh; }
-    }
-    @keyframes notification-out {
-      to {bottom: -5vh; display:none;}
-      from {bottom: 5vh; display:block;}
-    }
-  `)
-}
+
+    `)
+  }
+
+  // textarea,
+  // button {
+  //   display: block;
+  //   clear:both;
+  //   margin: ${DS.gutters.sm}px auto ${DS.gutters.sm}px auto;
+  //   ${buttonStyle()}
+  // }
+  // textarea {
+  //   width: 100%;
+  //   min-height: 300px;
+  //   font-size: ${DS.fontSizes.xl}px;
+  // }

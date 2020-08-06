@@ -3,5 +3,5 @@ node_modules
 dist/*.js
 !dist/service-worker.js
 dist/*.js.map
-chumbucket/*
-!chumbucket/readme.md
+cover/*
+!cover/readme.md
