@@ -1,6 +1,5 @@
 node_modules
 .now
-dist/*.js
 !dist/service-worker.js
 dist/*.js.map
 cover/*
