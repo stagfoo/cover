@@ -17,3 +17,10 @@ export function hydrateState(key:string = 'cover_storage'){
 export function dehydrateState(store, key:string = 'cover_storage') {
   localStorage.setItem(key, JSON.stringify(store))
 }
+
+export const toBase64 = file => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = error => reject(error);
+});

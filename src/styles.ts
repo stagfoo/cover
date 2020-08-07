@@ -1,5 +1,4 @@
 import joro from 'joro';
-
 export const DS = {
   fontFamily: {
     default: "'Lexend Zetta', san-serif",
@@ -64,9 +63,19 @@ export function BaseStyles() {
       font-size: ${DS.gutters.lg}px;
     }
     #cover-area {
-      margin-top: ${DS.gutters.xxl}px;
-      margin-bottom: ${DS.gutters.xl}px;
+      position:relative;
+      z-index: 2;
       width: 480px;
+    }
+    #cover-area-cd {
+      position:absolute;
+      margin:0 auto;
+      left:0;
+      right:0;
+      z-index:0;
+      top: 10px;
+      left: 40px;
+      width: 410px;
     }
     input:focus,
     input {
@@ -90,11 +99,48 @@ export function BaseStyles() {
       background-image: url('/assets/button-cover.png');
       padding: ${DS.gutters.md}px;
       margin-top: ${DS.gutters.xxl}px;
+      cursor: pointer;
+    }
+    .wrapper {
+      margin: 0 auto;
+      margin-top: ${DS.gutters.xxl}px;
+      margin-bottom: ${DS.gutters.xxl}px;
+      width: 480px;
+    }
+    #cover-uploader {
+      position: relative;
+      width: 480px;
+      overflow:hidden;
+    }
+    #cover-uploader input {
+      position: absolute;
+      z-index: 4;
+      width: 100%;
+      opacity:0;
+      height: 100%;
+      right:0;
+      left:0;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+    .personal-cover-overlay,
+    .personal-cover {
+      width: ${260}px;
+      left:52px;
+      top:64px;
+      position:absolute;
+      z-index: 2;
+      border-top-right-radius: 8px;
+    }
+    .personal-cover-overlay {
+      z-index: 3;
+      opacity: 0.5;
     }
 
     button span {
       background-color: #000;
       padding: ${DS.gutters.sm/2}px;
+      cursor: pointer;
       color: #fff;
     }
     ul,li {
@@ -118,6 +164,33 @@ export function BaseStyles() {
       padding-bottom: ${DS.gutters.xxl*2}px;
       display:block;
       overflow:hidden;
+    }
+
+    #track-cover {
+      position: absolute;
+      left:52px;
+      top:64px;
+      z-index:2;
+      opacity:1;
+      width:260px;
+      height: 200px;
+      background-position: -52px -65px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .spin {
+      animation-name: spin;
+      animation-duration: 5000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
     }
 
     `)

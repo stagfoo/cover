@@ -11,9 +11,13 @@ type Context = {
 const HOME_PAGE = (ctx: Context, next: any) => {
   state._update('updateCurrentPage', 'HOME')
 };
+const PLAYER_PAGE = (ctx: Context, next: any) => {
+  state._update('updateCurrentPage', 'PLAYER')
+};
 
 // Routes
 page('/', HOME_PAGE);
+page('/player', PLAYER_PAGE);
 
 
 export function startRouters(): void {

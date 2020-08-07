@@ -15,7 +15,10 @@ export const state = createStore(
     defaultState,
     {
       renderer,
-      dehydrateState
+      dehydrateState,
+      debug: (s) => {
+        console.log('[debug]', s)
+      }
     },
     reducers
   );
