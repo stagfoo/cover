@@ -4,10 +4,6 @@ import domtoimage from 'dom-to-image';
 
 const canvasId = 'steg-can';
 
-export function handleGreetingClick() {
-  state._update('updateGreeting', state.greeting + '🍖')
-};
-
 export function coverImage(e: any) {
   toBase64(e.target.files[0]).then(data => {
     state._update('updateImage', data)
@@ -50,6 +46,8 @@ function downloadCanvas(filename:string){
 
 
 export function playTrack(e){
+  state._update('updateTrack', "")
+  state._update('updateTrackCover', null)
   toBase64(e.target.files[0]).then(data => {
     state._update('updateTrackCover', data)
 
