@@ -1,5 +1,5 @@
 {
-  "name": "chum-bucket",
+  "name": "cover",
   "version": "1.0.0",
   "description": "an example glitch app with typescript and webpack",
   "main": "src/index.ts",
