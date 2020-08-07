@@ -55,6 +55,7 @@ export function routing(state) {
         <li><img width="320px" src="/assets/example3.png" /></li>
         <li><img width="320px" src="/assets/example4.png" /></li>
       </ul>
+      <a style="width: 100%; clear:both; display:block;" href="/player">Listen to your images</a>
       </div>
 `
 case "PLAYER":
