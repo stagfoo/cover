@@ -9,9 +9,13 @@ type Context = {
 
 // Handlers
 const HOME_PAGE = (ctx: Context, next: any) => {
+  state._update('updateTrack', '')
+  state._update('updateTrackCover', null)
   state._update('updateCurrentPage', 'HOME')
 };
 const PLAYER_PAGE = (ctx: Context, next: any) => {
+  state._update('updateTrack', '')
+  state._update('updateTrackCover', null)
   state._update('updateCurrentPage', 'PLAYER')
 };
 
