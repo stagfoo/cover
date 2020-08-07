@@ -46,13 +46,14 @@ export function BaseStyles() {
       color:  ${DS.colors.white};
       opacity: 1;
       font-family: ${DS.fontFamily.default};
-
     }
     body {
       background-color: ${DS.colors.black};
       background-image:url("/assets/wallpaper.png");
       background-size: cover;
       background-repeat:no-repeat;
+      margin-bottom: ${DS.gutters.xxl*2}px;
+
     }
     h1 {
       font-size:${DS.gutters.xxl}px;
@@ -126,6 +127,7 @@ export function BaseStyles() {
     .personal-cover-overlay,
     .personal-cover {
       width: ${260}px;
+      max-height: ${260}px;
       left:52px;
       top:64px;
       position:absolute;
@@ -172,11 +174,12 @@ export function BaseStyles() {
       top:64px;
       z-index:2;
       opacity:1;
-      width:260px;
-      height: 200px;
+      width: ${250}px;
+      height: ${250}px;
       background-position: -52px -65px;
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
+      transition: 0.3s ease all;
     }
     .spin {
       animation-name: spin;

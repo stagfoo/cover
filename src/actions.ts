@@ -29,6 +29,8 @@ export function createCover() {
         downloadCanvas('sample.cover.png');
         state._update('updateYoutube', "")
         state._update('updateImage', null)
+        document.querySelector(canvasId).remove()
+
       }, 1000)
 
     })
@@ -50,11 +52,11 @@ export function playTrack(e){
   state._update('updateTrackCover', null)
   toBase64(e.target.files[0]).then(data => {
     state._update('updateTrackCover', data)
-
     createCanvasImage(data, 480, 'player-can', () => {
       const message = window['readMsgFromCanvas']('player-can', "cover-app", 0)
       const trackId = message.split('watch?v=')
       state._update('updateTrack', trackId[1])
+      document.querySelector('#player-can').remove()
     })
   }).catch(err => {
     console.error(err)
@@ -92,6 +94,7 @@ function createCanvasImage(dataURI, maxsize, canvasid, cb) {
         var context = canvas.getContext('2d');
         context.drawImage(image, 0, 0, image.width, image.height, 0, 0, w, h);
         cb()
+        
       };
       image.src = (data as string);
     };

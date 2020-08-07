@@ -50,10 +50,10 @@ export function routing(state) {
       <div id="samples">
         <h2>samples</h2>
       <ul>
-        <li><img width="320px" src="/assets/example1.png" /></li>
-        <li><img width="320px" src="/assets/example2.png" /></li>
-        <li><img width="320px" src="/assets/example3.png" /></li>
-        <li><img width="320px" src="/assets/example4.png" /></li>
+        <li><img width="320px" src="/assets/sample1.png" /></li>
+        <li><img width="320px" src="/assets/sample2.png" /></li>
+        <li><img width="320px" src="/assets/sample3.png" /></li>
+        <li><img width="320px" src="/assets/sample4.png" /></li>
       </ul>
       <a style="width: 100%; clear:both; display:block;" href="/player">Listen to your images</a>
       </div>
@@ -66,11 +66,12 @@ case "PLAYER":
     </div>
     <h2>samples</h2>
   <ul>
-    <li><img width="320px" src="/assets/example1.png" /></li>
-    <li><img width="320px" src="/assets/example2.png" /></li>
-    <li><img width="320px" src="/assets/example3.png" /></li>
-    <li><img width="320px" src="/assets/example4.png" /></li>
+    <li><img width="320px" src="/assets/sample1.png" /></li>
+    <li><img width="320px" src="/assets/sample2.png" /></li>
+    <li><img width="320px" src="/assets/sample3.png" /></li>
+    <li><img width="320px" src="/assets/sample4.png" /></li>
   </ul>
+  <a style="width: 100%; clear:both; display:block;" href="/">Make More cover.pngs</a>
   </div>
 `
     default:
