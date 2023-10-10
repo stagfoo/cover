@@ -7,7 +7,7 @@ import { BaseStyles  } from './styles';
 import morph from 'nanomorph';
 
 //Default render
-const ROOT_NODE = document.body.querySelector('#app');
+const ROOT_NODE = document.body.querySelector('#cover-app');
 
 //Create Store
 const defaultState = _defaultStore

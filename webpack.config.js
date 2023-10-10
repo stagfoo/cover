@@ -46,23 +46,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new WorkboxPlugin.GenerateSW({
-      cacheId: `${new Date().getTime()}`,
-      cleanupOutdatedCaches: true,
-      inlineWorkboxRuntime: true,
-      include:[
-        "main.bundle.js",
-        "data.json",
-      ],
-      clientsClaim: true,
-      runtimeCaching: true,
-      skipWaiting: true,
-      runtimeCaching: [{
-        urlPattern: new RegExp('https://cover.stagfoo.com'),
-        handler: 'StaleWhileRevalidate'
-      }]
-}),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     hot:true,

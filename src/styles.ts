@@ -36,39 +36,16 @@ export const STYLES = new joro();
 
 export function BaseStyles() {
   STYLES.add("baseStyles", `
-    * {
-      font-family: ${DS.fontFamily.default};
-    }
-    html,body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      color:  ${DS.colors.white};
-      opacity: 1;
-      font-family: ${DS.fontFamily.default};
-    }
-    body {
-      background-color: ${DS.colors.black};
-      background-image:url("/assets/wallpaper.png");
-      background-size: cover;
-      background-repeat:no-repeat;
-      margin-bottom: ${DS.gutters.xxl*2}px;
-
-    }
-    h1 {
-      font-size:${DS.gutters.xxl}px;
-      letter-spacing: ${DS.gutters.xl*3}px;
-      margin-left: ${DS.gutters.xxl}px;
-    }
-    h2 {
-      font-size: ${DS.gutters.lg}px;
-    }
-    #cover-area {
+  #cover-app {
+    width: 478px;
+      height: 439px;
+  }
+    #cover-app #cover-area {
       position:relative;
       z-index: 2;
       width: 480px;
     }
-    #cover-area-cd {
+    #cover-app #cover-area-cd {
       position:absolute;
       margin:0 auto;
       left:0;
@@ -78,42 +55,16 @@ export function BaseStyles() {
       left: 40px;
       width: 410px;
     }
-    input:focus,
-    input {
-      outline: none;
-      border: 0;
-      text-align: center;
-      font-family: ${DS.fontFamily.default};
-      font-size: ${DS.fontSizes.md/1.2}px;
-      clear: both;
-      width: 38%;
-      color: #fff;
-      display:block;
-      margin: 0 auto;
-      background: none;
-      border-bottom: 2px solid #ffffff;
-    }
-    button {
-      border: 0;
-      outline: none;
-      background-size: cover;
-      background-image: url('/assets/button-cover.png');
-      padding: ${DS.gutters.md}px;
-      margin-top: ${DS.gutters.xxl}px;
-      cursor: pointer;
-    }
-    .wrapper {
-      margin: 0 auto;
-      margin-top: ${DS.gutters.xxl}px;
-      margin-bottom: ${DS.gutters.xxl}px;
-      width: 480px;
-    }
-    #cover-uploader {
+
+    #cover-app #cover-uploader {
       position: relative;
-      width: 480px;
+      width: 478px;
+      height: 439px;
+      border-radius:4px;
       overflow:hidden;
+      background-color: ${DS.colors.black};
     }
-    #cover-uploader input {
+    #cover-app #cover-uploader input {
       position: absolute;
       z-index: 4;
       width: 100%;
@@ -124,8 +75,8 @@ export function BaseStyles() {
       margin: 0 auto;
       cursor: pointer;
     }
-    .personal-cover-overlay,
-    .personal-cover {
+    #cover-app .personal-cover-overlay,
+    #cover-app .personal-cover {
       width: ${260}px;
       max-height: ${260}px;
       left:52px;
@@ -134,41 +85,13 @@ export function BaseStyles() {
       z-index: 2;
       border-top-right-radius: 8px;
     }
-    .personal-cover-overlay {
+    #cover-app .personal-cover-overlay {
       z-index: 3;
       opacity: 0.5;
     }
 
-    button span {
-      background-color: #000;
-      padding: ${DS.gutters.sm/2}px;
-      cursor: pointer;
-      color: #fff;
-    }
-    ul,li {
-      list-style:none;
-      margin: 0;
-      padding: 0;
-    }
-    ul {
-      margin: 0 auto;
-      width: 712px;
-      display:block;
-    }
-    li {
-      display:inline-block;
-      float:left;
-      padding: ${DS.gutters.md}px;
-    }
 
-    #samples {
-      padding-top: ${DS.gutters.xxl*2}px;
-      padding-bottom: ${DS.gutters.xxl*2}px;
-      display:block;
-      overflow:hidden;
-    }
-
-    #track-cover {
+    #cover-app #track-cover {
       position: absolute;
       left:52px;
       top:64px;
@@ -181,13 +104,13 @@ export function BaseStyles() {
       border-bottom-right-radius: 8px;
       transition: 0.3s ease all;
     }
-    .spin {
-      animation-name: spin;
+    #cover-app .spin {
+      animation-name: coverAppSping;
       animation-duration: 5000ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }
-    @keyframes spin {
+    @keyframes coverAppSping {
       from {
           transform:rotate(0deg);
       }
@@ -198,16 +121,3 @@ export function BaseStyles() {
 
     `)
   }
-
-  // textarea,
-  // button {
-  //   display: block;
-  //   clear:both;
-  //   margin: ${DS.gutters.sm}px auto ${DS.gutters.sm}px auto;
-  //   ${buttonStyle()}
-  // }
-  // textarea {
-  //   width: 100%;
-  //   min-height: 300px;
-  //   font-size: ${DS.fontSizes.xl}px;
-  // }
