@@ -12,8 +12,9 @@ export function coverImage(e: any) {
   })
 }
 
-export function newYoutube(e: any) {
-  state._update('updateYoutube', e.target.value)
+export function newYoutube(e: { target: {value: string }}) {
+  const newId = getVideoId(e.target.value).split('&')[0]
+  state._update('updateYoutube', `https://www.youtube.com/watch?v=${newId}`)
 }
 
 export function createCover() {
@@ -23,6 +24,7 @@ export function createCover() {
       var img = new Image();
       img.src = dataUrl;
       createCanvasImage(dataUrl, 480, canvasId, () => {
+        //TODO normalize this
         window['writeMsgToCanvas'](canvasId, `${state.youtube}`, "cover-app", 0)
       })
       setTimeout(() => {
