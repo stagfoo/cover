@@ -58,7 +58,7 @@ export function playTrack(e){
     createCanvasImage(data, 480, 'player-can', () => {
       const message = window['readMsgFromCanvas']('player-can', "cover-app", 0)
       const trackId = getVideoId(message).split('&')[0]
-      state._update('updateTrack', trackId[1])
+      state._update('updateTrack', trackId)
       document.querySelector('#player-can').remove()
     })
   }).catch(err => {
