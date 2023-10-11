@@ -47,6 +47,10 @@ function downloadCanvas(filename:string){
 }
 
 
+function getVideoId(input: string) {
+  return input.match(/(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/)[1]; 
+  }
+
 export function playTrack(e){
   state._update('updateTrack', "")
   state._update('updateTrackCover', null)
@@ -54,12 +58,12 @@ export function playTrack(e){
     state._update('updateTrackCover', data)
     createCanvasImage(data, 480, 'player-can', () => {
       const message = window['readMsgFromCanvas']('player-can', "cover-app", 0)
-      const trackId = message.split('watch?v=')
+      const trackId = getVideoId(message)
       state._update('updateTrack', trackId[1])
       document.querySelector('#player-can').remove()
     })
   }).catch(err => {
-    console.error(err)
+    //console.error(err)
   })
 }
 
