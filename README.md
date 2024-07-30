@@ -1,34 +1,14 @@
-<p align="center"><img width="300px" src=".readme/logo.png" />
-</p>
-<p align="center">a kit to build quick demo apps and test ideas (chumming the water so to speak )</p>
-<hr>
-<p align="center">
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-</a>
-</p>
-
+# Cover 💿
 ---
+
+# What is it 
+- a website to store youtube videos inside images using stegonography
+- a player on the website will take out the url from the image and play it
 
 # Why make this?
 
-- a kit to build quick demo apps and test ideas (chumming the water so to speak )
-- Its got one global state focusing on (data = view)
-- routing is super transparent
-- who needs folders in such small apps
-- simple entry point if you want to change the UI
-- Good for glitch projects
-
-# Whats inside
-
-- 🖼️ UI = [nanohtml](https://github.com/choojs/nanohtml)
-- 🍖 Store = [Obake.js](https://github.com/stagfoo/obake)
-- 🦴 Router = [Page.js](https://visionmedia.github.io/page.js/)
-- 🍹 Styles = Just Javascript and strings [Joro](https://github.com/stagfoo/joro).
+- learn about stegonography
+- make youtube video explaining how you can make it
 
 
-# whats a cover
-
-a bucket for holding a form of bait used to attract sharks
-
-![jaws chum](https://thumbs.gfycat.com/ForkedAptFurseal-small.gif)
+[![VIDEO](https://img.youtube.com/vi/hBixGO6Kxtk/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://www.youtube.com/watch?v=hBixGO6Kxtk))
