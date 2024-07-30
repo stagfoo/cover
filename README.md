@@ -11,4 +11,4 @@
 - make youtube video explaining how you can make it
 
 
-[![VIDEO](https://img.youtube.com/vi/hBixGO6Kxtk/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://www.youtube.com/watch?v=hBixGO6Kxtk))
+[![VIDEO](https://img.youtube.com/vi/hBixGO6Kxtk/0.jpg)]([https://www.youtube.com/watch?v=hBixGO6Kxtk](https://www.youtube.com/watch?v=hBixGO6Kxtk))
