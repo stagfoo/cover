@@ -1,3 +1,4 @@
+const { hostname } = require("os");
 const path = require("path");
 const webpack = require("webpack");
 const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -45,27 +46,10 @@ module.exports = {
       {enforce: "pre", test: /\.js$/, loader: "source-map-loader"}
     ]
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new WorkboxPlugin.GenerateSW({
-      cacheId: `${new Date().getTime()}`,
-      cleanupOutdatedCaches: true,
-      inlineWorkboxRuntime: true,
-      include:[
-        "main.bundle.js",
-        "data.json",
-      ],
-      clientsClaim: true,
-      runtimeCaching: true,
-      skipWaiting: true,
-      runtimeCaching: [{
-        urlPattern: new RegExp('https://cover.stagfoo.com'),
-        handler: 'StaleWhileRevalidate'
-      }]
-}),
-  ],
+  plugins: [],
   devServer: {
     hot:true,
+    host: "nb.local.com",
     historyApiFallback: true,
     disableHostCheck: true
   },
