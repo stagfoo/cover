@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "an example glitch app with typescript and webpack",
   "main": "src/index.ts",
+  "engines": {
+    "node": "18.18.2",
+    "npm": "9.8.1"
+  },
   "scripts": {
     "start": "webpack-dev-server --content-base dist --hot --inline --mode=development",
     "build": "webpack -p",

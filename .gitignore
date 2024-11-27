@@ -4,3 +4,4 @@ node_modules
 dist/*.js.map
 cover/*
 !cover/readme.md
+.DS_Store
