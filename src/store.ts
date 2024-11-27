@@ -28,5 +28,8 @@ export const reducers = {
   updateImage: reducer((state, value: string) => {
     state.image = value;
   }),
+  updateIsLoading: reducer((state, value: boolean) => {
+    state.isLoading = value;
+  }),
 
 }
