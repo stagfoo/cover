@@ -19,6 +19,7 @@ export function imageHandler(state) {
     <img class="personal-cover ${state.image !== null ? "show": ""}" src="${state.image}" />
     <img id="cover-area" src="/assets/empty-case.png"/>
     <img id="cover-area-cd" src="${state.youtube !== "" ? "/assets/cd.png": ""}"/>
+    <div class="loading ${state.isLoading ? "show": "hide"}"></div>
   </div>
   `
 }
@@ -47,15 +48,18 @@ export function routing(state) {
         <h2>drag an image on to the cover</h2>
         <input value="${state.youtube}" onchange=${(e) => actions.newYoutube(e)} placeholder="www.youtube.com/aestesic-as-f">
         <button onclick="${actions.createCover}"><span>save your music picture</span></button>
-      <div id="samples">
+        <div class="loading ${state.isLoading ? "show": "hide"}">
+          .:generating:.
+      </div>
+        <div id="samples">
         <h2>samples</h2>
       <ul>
-        <li><img width="320px" src="/assets/sample1.png" /></li>
-        <li><img width="320px" src="/assets/sample2.png" /></li>
-        <li><img width="320px" src="/assets/sample3.png" /></li>
-        <li><img width="320px" src="/assets/sample4.png" /></li>
+        <li><img width="320px" src="/assets/sample1.png" /><a download href="/assets/sample1.png"><span>Download</span></a></li>
+        <li><img width="320px" src="/assets/sample2.png" /><a download href="/assets/sample2.png"><span>Download</span></a></li>
+        <li><img width="320px" src="/assets/sample3.png" /><a download href="/assets/sample3.png"><span>Download</span></a></li>
       </ul>
-      <a style="width: 100%; clear:both; display:block;" href="/player">Listen to your images</a>
+      <button onclick="${actions.goToPlayer}"><span>Listen to your music</span></button>
+      
       </div>
 `
 case "PLAYER":
@@ -64,15 +68,16 @@ case "PLAYER":
     <div class="wrapper">
     ${playerHandler(state)}
     </div>
-    <h2>samples</h2>
-  <ul>
-    <li><img width="320px" src="/assets/sample1.png" /></li>
-    <li><img width="320px" src="/assets/sample2.png" /></li>
-    <li><img width="320px" src="/assets/sample3.png" /></li>
-    <li><img width="320px" src="/assets/sample4.png" /></li>
-  </ul>
-  <a style="width: 100%; clear:both; display:block;" href="/">Make More cover.pngs</a>
-  </div>
+    <h2>drag an "cover.png" to into the case<br><br>to listen to your music</h2>
+    <div id="samples">
+        <h2>samples</h2>
+      <ul>
+        <li><img width="320px" src="/assets/sample1.png" /><a download href="/assets/sample1.png"><span>Download</span></a></li>
+        <li><img width="320px" src="/assets/sample2.png" /><a download href="/assets/sample2.png"><span>Download</span></a></li>
+        <li><img width="320px" src="/assets/sample3.png" /><a download href="/assets/sample3.png"><span>Download</span></a></li>
+      </ul>
+      <button onclick="${actions.goToHome}"><span>Make More cover.pngs</span></button>
+      </div>
 `
     default:
     return html`
