@@ -13,6 +13,7 @@ export const DS = {
 
   },
   gutters: {
+    xs: 6,
     sm: 8,
     md: 16,
     lg: 24,
@@ -35,6 +36,7 @@ export const STYLES = new joro();
 
 
 export function BaseStyles() {
+
   STYLES.add("baseStyles", `
     * {
       font-family: ${DS.fontFamily.default};
@@ -93,15 +95,24 @@ export function BaseStyles() {
       background: none;
       border-bottom: 2px solid #ffffff;
     }
+    .rainbow,
     button {
       border: 0;
       outline: none;
+      border-radius: 4px;
       background-size: cover;
       background-image: url('/assets/button-cover.png');
       padding: ${DS.gutters.md}px;
       margin-top: ${DS.gutters.xxl}px;
       cursor: pointer;
+      transition: 1s ease all;
     }
+    button:hover {
+      background-image: url('/assets/button-cover.png');
+      background-position: 50% 100%;
+      scale: 1.05;
+    }
+
     .wrapper {
       margin: 0 auto;
       margin-top: ${DS.gutters.xxl}px;
@@ -138,10 +149,11 @@ export function BaseStyles() {
       z-index: 3;
       opacity: 0.5;
     }
-
+    .rainbow span,
     button span {
       background-color: #000;
-      padding: ${DS.gutters.sm/2}px;
+      padding: ${DS.gutters.xs}px;
+      border-radius: 4px;
       cursor: pointer;
       color: #fff;
     }
@@ -166,6 +178,52 @@ export function BaseStyles() {
       padding-bottom: ${DS.gutters.xxl*2}px;
       display:block;
       overflow:hidden;
+    }
+    #samples ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #samples li {
+      width: 50%;
+      box-sizing: border-box;
+    }
+    #samples li a {
+      padding: ${DS.gutters.md}px;
+      text-decoration: none;
+      background: ${DS.colors.black};
+      border-radius: 4px;
+      margin: 8px;
+      width: 100%;
+      display: flex;
+      width: auto;
+      text-align: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: 1s ease all;
+      opacity: 0.9;
+      position: relative;
+    }
+    #samples li a span {
+      // background-color: ${DS.colors.black};
+      padding: ${DS.gutters.xs}px;
+      border-radius: 4px;
+    }
+    #samples li a:after {
+      content: "";
+      height: 0;
+      opacity: 0;
+      background-image: url('/assets/button-cover.png');
+      background-size: cover;
+      background-position: 50% 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      transition: 0.3s ease all;
+    }
+    #samples li a:hover:after {
+      height: 4px;
+      opacity: 1;
     }
 
     #track-cover {
@@ -195,19 +253,60 @@ export function BaseStyles() {
           transform:rotate(360deg);
       }
     }
+    @keyframes load {
+      from {
+          background-position: 0 0%;
+      }
+      to {
+          background-position: 0 100%;
+      }
+    }
+    .loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    top: 0px;
+    z-index: 100;
+    background: url(/assets/spinner.gif);
+    background-size: auto;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+    }
+    .loading.hide {
+      transition: 0.3s ease all;
+      opacity: 0;
+    }
+    .loading.show {
+      transition: 0.3s ease all;
+      opacity: 1;
+    }
+    .loading-ball {
+      text-align: center;
+      line-height: 460px;
+      color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 124px;
+      left: 0px;
+      right: 0;
+      width: 484px;
+      height: 460px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 auto;
+      z-index: 100;
+      background: url(/assets/wallpaper.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: load 6s cubic-bezier(0.63, -0.13, 0.74, 0.71);
+    }
+      .hide {
+        display: none;
+      }
 
-    `)
-  }
-
-  // textarea,
-  // button {
-  //   display: block;
-  //   clear:both;
-  //   margin: ${DS.gutters.sm}px auto ${DS.gutters.sm}px auto;
-  //   ${buttonStyle()}
-  // }
-  // textarea {
-  //   width: 100%;
-  //   min-height: 300px;
-  //   font-size: ${DS.fontSizes.xl}px;
-  // }
+    `, window.document.createElement('style'), true)
+}
