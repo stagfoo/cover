@@ -1,6 +1,7 @@
 import { state } from './index';
 import { toBase64 } from 'utils'
 import domtoimage from 'dom-to-image';
+import page from 'page';
 
 const canvasId = 'steg-can';
 
@@ -14,30 +15,28 @@ export function coverImage(e: any) {
 
 export function newYoutube(e: { target: {value: string }}) {
   const newId = getVideoId(e.target.value).split('&')[0]
-  state._update('updateYoutube', `https://www.youtube.com/watch?v=${newId}`)
+  if(newId) state._update('updateYoutube', `https://www.youtube.com/watch?v=${newId}`)
 }
 
 export function createCover() {
   const cover: any = document.querySelector('#cover-uploader')
+  state._update('updateIsLoading', true)
   domtoimage.toPng(cover)
     .then(function (dataUrl) {
       var img = new Image();
       img.src = dataUrl;
       createCanvasImage(dataUrl, 480, canvasId, () => {
-        //TODO normalize this
         window['writeMsgToCanvas'](canvasId, `${state.youtube}`, "cover-app", 0)
-      })
-      setTimeout(() => {
         downloadCanvas('sample.cover.png');
         state._update('updateYoutube', "")
         state._update('updateImage', null)
-        document.querySelector(canvasId).remove()
-
-      }, 1000)
-
+        if(document.querySelector(canvasId)) document.querySelector(canvasId).remove()
+      })
     })
     .catch(function (error) {
       console.error('oops, something went wrong!', error);
+    }).finally(() => {
+      state._update('updateIsLoading', false)
     });
 }
 
@@ -50,6 +49,7 @@ function downloadCanvas(filename:string){
 
 
 function getVideoId(input: string) {
+  if(typeof input !== "string") return "";
   return input.match(/(?:youtu\.be\/|youtube\.com(?:\/embed\/|\/v\/|\/watch\?v=|\/user\/\S+|\/ytscreeningroom\?v=|\/sandalsResorts#\w\/\w\/.*\/))([^\/&]{10,12})/)[1]; 
   }
 
@@ -61,7 +61,7 @@ export function playTrack(e){
     createCanvasImage(data, 480, 'player-can', () => {
       const message = window['readMsgFromCanvas']('player-can', "cover-app", 0)
       const trackId = getVideoId(message)
-      state._update('updateTrack', trackId[1])
+      state._update('updateTrack', trackId)
       document.querySelector('#player-can').remove()
     })
   }).catch(err => {
@@ -130,4 +130,12 @@ function dataURItoBlob(dataURI) {
   var blob = new Blob([ab], {type: mimeString});
   return blob;
 
+}
+
+export function goToPlayer(){
+  page('/player')
+}
+
+export function goToHome(){
+  page('/')
 }
