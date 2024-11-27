@@ -48,9 +48,6 @@ export function routing(state) {
         <h2>drag an image on to the cover</h2>
         <input value="${state.youtube}" onchange=${(e) => actions.newYoutube(e)} placeholder="www.youtube.com/aestesic-as-f">
         <button onclick="${actions.createCover}"><span>save your music picture</span></button>
-        <div class="loading ${state.isLoading ? "show": "hide"}">
-          .:generating:.
-      </div>
         <div id="samples">
         <h2>samples</h2>
       <ul>
