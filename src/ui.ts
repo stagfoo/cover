@@ -19,8 +19,8 @@ export function imageHandler(state) {
     <img class="personal-cover ${state.image !== null ? "show": ""}" src="${state.image}" />
     <img id="cover-area" src="/assets/empty-case.png"/>
     <img id="cover-area-cd" src="${state.youtube !== "" ? "/assets/cd.png": ""}"/>
-    <div class="loading ${state.isLoading ? "show": "hide"}"></div>
   </div>
+  <div class="loading ${state.isLoading ? "show": "hide"}"></div>
   `
 }
 export function playerHandler(state) {
@@ -65,7 +65,7 @@ case "PLAYER":
     <div class="wrapper">
     ${playerHandler(state)}
     </div>
-    <h2>drag an "cover.png" to into the case<br><br>to listen to your music</h2>
+    <h2>drag a "cover.png" into the case to listen to your music</h2>
     <div id="samples">
         <h2>samples</h2>
       <ul>

@@ -80,6 +80,8 @@ export function BaseStyles() {
       left: 40px;
       width: 410px;
     }
+
+
     input:focus,
     input {
       outline: none;
@@ -307,6 +309,44 @@ export function BaseStyles() {
       .hide {
         display: none;
       }
+
+    @media (width <= 560px) {
+      .wrapper {
+        width: 100%;
+        margin: 0;
+        height: 400px;
+      }
+        h1 {
+        font-size: 24px;
+        letter-spacing: 16px;
+        margin: 64px auto 0 auto;
+      }
+        input {
+          width: 80%;
+        }
+        h2 {
+        font-size: 14px;
+        margin: 16px;
+        line-height: 2;
+      }
+      #samples ul {
+      width: 100%;
+      }
+       #samples ul li {
+      width: 100%;
+      }
+       #samples ul li img {
+        width: 90%;
+        margin: 0 auto;
+      }
+       #cover-area {
+       width: 100%;
+       }
+       #cover-uploader {
+        scale: 0.6;
+        transform: translate(-100px, -50px);
+       }
+    }
 
     `, window.document.createElement('style'), true)
 }
